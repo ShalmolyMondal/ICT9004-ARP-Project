@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
 import TextField from "material-ui/TextField";
-import Button from 'material-ui/Button'
+import RaisedButton from 'material-ui/RaisedButton';
 
 import glamorous from "glamorous";
 import { css } from "glamor";

@@ -2,6 +2,10 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 import glamorous from "glamorous";
+import Drawer from 'material-ui/Drawer';
+import { MenuItem } from "material-ui/Menu";
+import RaisedButton from 'material-ui/RaisedButton';
+
 
 const StyledView = glamorous.div({
     display: "flex",
@@ -33,14 +37,31 @@ const ListLayout = glamorous.div({
 class CbtLayout extends Component { 
     constructor(props) {
         super(props);
+        this.state = {open: false};
     }
+    
+    handleToggle = () => this.setState({open: !this.state.open});
 
     render() {
         let { controlPanel, list } = this.props;
         return (
             <StyledView>
                 <div>
-                    This is situation screen
+                    <div>
+                        <RaisedButton
+                            secondary={true}
+                            color="accent" 
+                            label="Toggle Drawer"
+                            onClick={this.handleToggle}
+                        >
+                            
+                        </RaisedButton>
+                        
+                        <Drawer open={this.state.open} docked={true}>
+                            <MenuItem>Menu Item</MenuItem>
+                            <MenuItem>Menu Item 2</MenuItem>
+                        </Drawer>
+                    </div>
                 </div>
                 {/* <ControlPanelLayout>
                     { controlPanel }

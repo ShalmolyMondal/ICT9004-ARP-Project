@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Button from "material-ui/Button";
+import RaisedButton from 'material-ui/RaisedButton';
 
 export default ({ children, ...rest}) => (
-    <Button raised color="accent" {...rest}>
+    <RaisedButton secondary={true} color="accent" {...rest}>
         {children}
-    </Button>
+    </RaisedButton>
 );

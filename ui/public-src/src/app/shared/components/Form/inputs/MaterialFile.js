@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
 import TextField from "material-ui/TextField";
-import Button from 'material-ui/Button'
+import RaisedButton from 'material-ui/RaisedButton';
 
 import glamorous from "glamorous";
 import { css } from "glamor";
@@ -27,14 +27,14 @@ export default class MaterialFile extends Component {
         let { onDrop, field, file, ...rest } = props;
         return (
             <div>
-                <Button
+                <RaisedButton
+                    primary={true}
                     onClick={ this._openFileDialog }
-                    raised
                     color="primary"
                     {...rest}
                 >
                     Select file
-                </Button>
+                </RaisedButton>
                 {
                     file && (
                         <FileName>{ file.name }</FileName>

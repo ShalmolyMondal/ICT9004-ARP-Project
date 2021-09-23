@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
-import Button from "material-ui/Button";
+import RaisedButton from 'material-ui/RaisedButton';
 
 import glamorous from "glamorous";
 import Field from 'components/Form/Field';

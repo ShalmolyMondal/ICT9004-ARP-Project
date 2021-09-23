@@ -10,7 +10,7 @@ import Toolbar from "material-ui/Toolbar";
 import IconButton from "material-ui/IconButton";
 import CloseIcon from "material-ui-icons/Close";
 import Typography from "material-ui/Typography";
-import Button from "material-ui/Button";
+import RaisedButton from 'material-ui/RaisedButton';
 
 const StyledDialog = glamorous(Dialog)();
 
@@ -80,9 +80,9 @@ class CreateUpdateModal extends Component {
                             {title}
                         </Typography>
                         {onCancel && (
-                            <Button color="accent" onClick={this.openConfirm}>
+                            <RaisedButton secondary={true} color="accent" onClick={this.openConfirm}>
                                 Cancel
-                            </Button>
+                            </RaisedButton>
                         )}
                     </Toolbar>
                 </ModalTopBar>

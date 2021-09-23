@@ -43,10 +43,8 @@ reaction(
 class App extends Component {
     
     render() {
-        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        console.log(window.location)
         return (
-            <MuiThemeProvider theme={styles.theme}>
+            <MuiThemeProvider muiTheme={styles.theme}>
                 <ThemeProvider theme={styles.theme}>
                     <Provider store={appStore}>
                         <MainScreen />

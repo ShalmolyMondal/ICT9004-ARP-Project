@@ -8,7 +8,7 @@ import Dialog, {
     DialogContent,
     DialogTitle
 } from "material-ui/Dialog";
-import Button from "material-ui/Button";
+import RaisedButton from 'material-ui/RaisedButton';
 
 class DeleteModal extends Component {
     constructor(props) {
@@ -36,10 +36,10 @@ class DeleteModal extends Component {
                 <DialogTitle>{title}</DialogTitle>
                 <DialogContent>{children}</DialogContent>
                 <DialogActions>
-                    <Button onClick={onClose}>Cancel</Button>
-                    <Button onClick={onDelete} color="accent">
+                    <RaisedButton onClick={onClose}>Cancel</RaisedButton>
+                    <RaisedButton secondary={true} onClick={onDelete} color="accent">
                         Delete
-                    </Button>
+                    </RaisedButton>
                 </DialogActions>
             </Dialog>
         );
