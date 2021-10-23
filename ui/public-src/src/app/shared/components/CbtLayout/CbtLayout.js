@@ -38,6 +38,7 @@ import Avatar from '@material-ui/core/Avatar';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import ConfirmationModal from '../ConfirmationModal/ConfirmationModal';
 import RunSituationSimulation from '../RunSituaitonSimulation/RunSituationSimulation';
+import SelectSituationFlow from '../SelectSituationFlow/SelectSituationFlow';
 const drawerWidth = 240;
 
 const styles = (theme) => ({
@@ -200,7 +201,20 @@ class CbtLayout extends React.Component {
     message: '',
     openSnackbar: false,
     expanded: false,
+    openSelectSituationModal: false
   };
+
+  handleSelectSituaitonClick = () => {
+    this.setState({
+      openSelectSituationModal: true
+    })
+  }
+
+  handleSelectSituaitonCLose = () => {
+    this.setState({
+      openSelectSituationModal: false
+    })
+  }
 
   handleExpandClick = () => {
     this.setState((state) => ({ expanded: !state.expanded }));
@@ -717,17 +731,44 @@ class CbtLayout extends React.Component {
               )}
               {this.props.page == 'run-simulation' && (
                 <React.Fragment>
-                  <div className={classes.spaceBetween}>
-                    <div className={classes.cardTitle}>Situation flow</div>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={() => this.openRunsituationModal()}
-                    >
-                      Run simulation
-                    </Button>
-                  </div>
+
+                  <Grid container>
+                    <Grid item xs={12}>
+                      <Grid item xs={8}>
+                        <Typography className={classes.cardTitle}>Situation flow</Typography>
+                      </Grid>
+                      <Grid item xs={2}>
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          onClick={() => this.openRunsituationModal()}
+                        >
+                          Run simulation
+                        </Button>
+                      </Grid>
+                      <Grid item xs={2}>
+                        <Button
+                          variant="contained"
+                          color="secondary"
+                          onClick={() => this.handleSelectSituaitonClick()}
+                        >
+                          Select Situation
+                        </Button>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+
                   <RunSituationSimulation situationList={situations} />
+                  {this.state.openSelectSituationModal &&
+                    <SelectSituationFlow
+                      // selectedNode={selectedNode}
+                      situationList={situations}
+                      openSelectSituationModal={this.state.openSelectSituationModal}
+                      closeSelectSituationModal={this.handleSelectSituaitonCLose}
+                    // elementList={elements}
+                    >
+                    </SelectSituationFlow>
+                  }
                 </React.Fragment>
               )}
             </Card>
