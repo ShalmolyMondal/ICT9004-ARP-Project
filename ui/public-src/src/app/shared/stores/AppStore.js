@@ -111,6 +111,7 @@ export default class AppStore {
     view;
 
     constructor(transportLayer, connectionProvider) {
+        debugger;
         this.transportLayer = transportLayer;
         this.errorStore = new ErrorStore();
 
@@ -212,7 +213,7 @@ export default class AppStore {
         this.createDefinitionStore = new UpdateDefinitionStore({
             root: this,
             state: observable({
-                get definition(){ return test.creationEntity }
+                get definition() { return test.creationEntity }
             }),
             onComplete: () => {
                 this.definitionModalStore.closeCreate();
@@ -226,7 +227,7 @@ export default class AppStore {
         this.editDefinitionStore = new UpdateDefinitionStore({
             root: this,
             state: observable({
-                get definition(){ return test.editingEntity}
+                get definition() { return test.editingEntity }
             }),
             onComplete: () => {
                 this.definitionModalStore.closeEdit();

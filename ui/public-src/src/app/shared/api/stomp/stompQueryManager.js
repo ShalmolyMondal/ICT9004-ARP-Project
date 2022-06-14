@@ -24,7 +24,7 @@ class StompQueryManager {
     send = (params) => {
 
         console.log(`Going to send query to the API with the following params: ${JSON.stringify(params)}`);
-        let {destinationPath, payload = {}, subscriptionPath} = params;
+        let { destinationPath, payload = {}, subscriptionPath } = params;
 
         let deferred = new Deferred();
         // Save destination path into deferred object for logging purposes
@@ -40,7 +40,7 @@ class StompQueryManager {
 
                 // Sending query
                 console.log(`>>> Sending query to the API with the following params: ${JSON.stringify(params)}`);
-                stompConnection.send(destinationPath, {requestId: this.requestId}, JSON.stringify(payload));
+                stompConnection.send(destinationPath, { requestId: this.requestId }, JSON.stringify(payload));
             })
             .catch(this.handleConnectionError.bind(this, deferred));
 
@@ -70,7 +70,7 @@ class StompQueryManager {
 
         //console.log(`>>> The following API subscription path ${subscriptionPath} response has been received: ${frame}`);
 
-        let {body, headers} = frame;
+        let { body, headers } = frame;
         let response = JSON.parse(body);
 
         // Getting stored promise by unique requestId;

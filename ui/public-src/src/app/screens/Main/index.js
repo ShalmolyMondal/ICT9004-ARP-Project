@@ -55,15 +55,15 @@ export default class MainScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            situationScreen: this.props.store.view.page == "situations" || this.props.store.view.page == "add-situation" || this.props.store.view.page == "situation-detail" 
-            || this.props.store.view.page == "manage-situation" || this.props.store.view.page == "run-simulation" ? true : false
+            situationScreen: this.props.store.view.page == "situations" || this.props.store.view.page == "add-situation" || this.props.store.view.page == "situation-detail"
+                || this.props.store.view.page == "manage-situation" || this.props.store.view.page == "run-simulation" ? true : false
         }
     }
     componentDidUpdate(prevProps) {
         // Typical usage (don't forget to compare props):
         alert('propschanged')
         if (this.props.userID !== prevProps.userID) {
-          this.fetchData(this.props.userID);
+            this.fetchData(this.props.userID);
         }
     }
 
@@ -72,10 +72,10 @@ export default class MainScreen extends Component {
             <StyledMainScreen className="test">
                 <InnerContainerLayout>
                     {
-                        !this.state.situationScreen && 
-                        <Header className="header-iot-ds"/>
+                        !this.state.situationScreen &&
+                        <Header className="header-iot-ds" />
                     }
-                    <View 
+                    <View
                         bgColor={this.state.situationScreen ? "#fff" : "#d9d9d9"}
                     />
                 </InnerContainerLayout>
@@ -103,8 +103,8 @@ export default class MainScreen extends Component {
 
                 <ErrorPanel />
 
-                 {/* <DevTools />   */}
-                
+                {/* <DevTools />   */}
+
             </StyledMainScreen>
         );
     }
